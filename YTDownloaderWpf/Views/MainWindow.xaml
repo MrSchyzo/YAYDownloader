@@ -1,0 +1,196 @@
+﻿<Window x:Class="YTDownloaderWpf.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:YTDownloaderWpf"
+        xmlns:vms="clr-namespace:YTDownloaderWpf.ViewModels"
+        xmlns:props="clr-namespace:YTDownloaderWpf.Properties"
+        xmlns:conv="clr-namespace:YTDownloaderWpf.Tasks.ValueConverters"
+        xmlns:models="clr-namespace:YTDownloaderWpf.Tasks.Models"
+        xmlns:commands="clr-namespace:YTDownloaderWpf.Tasks.Commands"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="MainWindow" MinHeight="720" MinWidth="1280">
+    <Window.DataContext>
+        <vms:VideosListViewModel/>
+    </Window.DataContext>
+    <Window.Resources>
+        <commands:DownloadMetadataCommand x:Key="DownloadMetadata" />
+        <commands:DownloadToFileCommand x:Key="DownloadToFile" />
+        <commands:DownloadMP3Command x:Key="DownloadMP3" />
+        <conv:NotEqualComparer x:Key="NotEqual"/>
+        <ObjectDataProvider x:Key="MetadataState" MethodName="GetValues"
+                        ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="models:MetadataState"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0" DockPanel.Dock="Top">
+            <MenuItem Header="{x:Static props:Resources.ADD_VIDEO}" Command="{Binding AddTask}"/>
+        </Menu>
+        <DataGrid IsReadOnly="True" Grid.Row="1" RowHeaderWidth="0" ItemsSource="{Binding Tasks, Mode=OneWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False" CanUserAddRows="False" BorderThickness="0" CanUserDeleteRows="False">
+            <DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                <Grid Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center" />
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </DataGrid.CellStyle>
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Width="5*" MaxWidth="24" MinWidth="24" Header="">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="X" CommandParameter="{Binding}" Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=DataContext.RemoveTask}">
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="IsEnabled" Value="False"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Status}" Value="{x:Static models:MetadataState.READY}">
+                                                <Setter Property="IsEnabled" Value="True"/>
+                                                <Setter Property="Background" Value="Red"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Status}" Value="{x:Static models:MetadataState.METADATA}">
+                                                <Setter Property="IsEnabled" Value="True"/>
+                                                <Setter Property="Background" Value="Red"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Status}" Value="{x:Static models:MetadataState.ERROR}">
+                                                <Setter Property="IsEnabled" Value="True"/>
+                                                <Setter Property="Background" Value="Red"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Width="25*" Header="{x:Static props:Resources.URL}" Binding="{Binding Url}"/>
+                <DataGridTextColumn Width="20*" Header="{x:Static props:Resources.METADATA_TASK_NAME}" Binding="{Binding Name}"/>
+                <DataGridTemplateColumn Width="55*" Header="{x:Static props:Resources.METADATA_TASK_MESSAGE}" SortMemberPath="Message" CanUserSort="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBox Text="{Binding Message}" BorderThickness="0" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap">
+                                <TextBox.Style>
+                                    <Style TargetType="TextBox">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Status}" Value="{x:Static models:MetadataState.ERROR}">
+                                                <Setter Property="Foreground" Value="Red"/>
+                                                <Setter Property="FontStyle" Value="Italic"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBox.Style>
+                            </TextBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="5*" MaxWidth="24" MinWidth="24" Header="">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="▼" CommandParameter="{Binding}" Command="{StaticResource DownloadMetadata}">
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="IsEnabled" Value="False"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Status}" Value="{x:Static models:MetadataState.READY}">
+                                                <Setter Property="IsEnabled" Value="True"/>
+                                                <Setter Property="Background" Value="LightGreen"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="25*" Header="Videos">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox ItemsSource="{Binding Path=Videos}"
+                                      SelectedValue="{Binding SelectedVideo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                <ComboBox.Style>
+                                    <Style TargetType="ComboBox">
+                                        <Setter Property="IsEnabled" Value="True"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Videos.Count}" Value="0">
+                                                <Setter Property="IsEnabled" Value="False"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </ComboBox.Style>
+                            </ComboBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="10*" Header="">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Download" CommandParameter="{Binding}" Command="{StaticResource DownloadToFile}">
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="IsEnabled" Value="True"/>
+                                        <Setter Property="Background" Value="LightGreen"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding SelectedVideo}" Value="{x:Null}">
+                                                <Setter Property="IsEnabled" Value="False"/>
+                                                <Setter Property="Background" Value="LightGray"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Status, Converter={StaticResource NotEqual}, ConverterParameter={x:Static models:MetadataState.METADATA}}">
+                                                <DataTrigger.Value>
+                                                    <sys:Boolean>True</sys:Boolean>
+                                                </DataTrigger.Value>
+                                                <Setter Property="IsEnabled" Value="False"/>
+                                                <Setter Property="Background" Value="LightGray"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="10*" Header="Audio">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="MP3" CommandParameter="{Binding}" Command="{StaticResource DownloadMP3}">
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="IsEnabled" Value="True"/>
+                                        <Setter Property="Background" Value="LightGreen"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding SelectedVideo}" Value="{x:Null}">
+                                                <Setter Property="IsEnabled" Value="False"/>
+                                                <Setter Property="Background" Value="LightGray"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Status, Converter={StaticResource NotEqual}, ConverterParameter={x:Static models:MetadataState.METADATA}}">
+                                                <DataTrigger.Value>
+                                                    <sys:Boolean>True</sys:Boolean>
+                                                </DataTrigger.Value>
+                                                <Setter Property="IsEnabled" Value="False"/>
+                                                <Setter Property="Background" Value="LightGray"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{13DC59C7-05BE-4649-BD32-FE3A29D64ABE}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>WpfApp1</RootNamespace>
-    <AssemblyName>WpfApp1</AssemblyName>
+    <RootNamespace>YTDownloaderWpf</RootNamespace>
+    <AssemblyName>YTDownloaderWpf</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -34,6 +34,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="libvideo, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\VideoLibrary.1.4.0\lib\portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10\libvideo.dll</HintPath>
+    </Reference>
+    <Reference Include="NReco.VideoConverter, Version=1.1.2.0, Culture=neutral, PublicKeyToken=395ccb334978a0cd, processorArchitecture=MSIL">
+      <HintPath>..\packages\NReco.VideoConverter.1.1.2\lib\net20\NReco.VideoConverter.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -54,7 +60,36 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
+    <Compile Include="ComponentModel\TrivialObservable.cs" />
+    <Compile Include="Properties\Resources.it.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.it.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Tasks\Commands\AddTaskCommand.cs" />
+    <Compile Include="Tasks\Commands\DownloadMP3Command.cs" />
+    <Compile Include="Tasks\Commands\RemoveTaskCommand.cs" />
+    <Compile Include="Tasks\Commands\DownloadToFileCommand.cs" />
+    <Compile Include="Tasks\Commands\DownloadMetadataCommand.cs" />
+    <Compile Include="Tasks\Models\IYouTubeVideoWrapper.cs" />
+    <Compile Include="Tasks\Models\MetadataTask.cs" />
+    <Compile Include="Tasks\Models\YouTubeVideoWrapper.cs" />
+    <Compile Include="Tasks\ValueConverters\NotEqualConverter.cs" />
+    <Compile Include="Utils\Extensions\ByteNumberBeautifier.cs" />
+    <Compile Include="Utils\Extensions\PathExtensions.cs" />
+    <Compile Include="Utils\Http\ChunkDownloader.cs" />
+    <Compile Include="Utils\Http\Events\DownloadEventArgs.cs" />
+    <Compile Include="Utils\Http\Events\IDownloadEventArgs.cs" />
+    <Compile Include="Utils\Http\Handlers\IDownloadProgressHandler.cs" />
+    <Compile Include="Utils\Http\IDisposableProgressFileDownloader.cs" />
+    <Compile Include="Utils\Http\IProgressFileDownloader.cs" />
+    <Compile Include="Utils\PathGetters\IPathGetter.cs" />
+    <Compile Include="Utils\PathGetters\SaveDialogPathGetter.cs" />
+    <Compile Include="ViewModels\VideosListViewModel.cs" />
+    <Compile Include="Views\Dialogs\TaskDialog.xaml.cs">
+      <DependentUpon>TaskDialog.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -62,10 +97,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\Dialogs\TaskDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -81,10 +120,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Properties\Resources.it.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.it.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -93,5 +139,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

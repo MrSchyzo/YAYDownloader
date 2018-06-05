@@ -3,23 +3,41 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp1", "WpfApp1\WpfApp1.csproj", "{13DC59C7-05BE-4649-BD32-FE3A29D64ABE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YTDownloaderWpf", "YTDownloaderWpf\YTDownloaderWpf.csproj", "{13DC59C7-05BE-4649-BD32-FE3A29D64ABE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM = Debug|ARM
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|ARM = Release|ARM
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{13DC59C7-05BE-4649-BD32-FE3A29D64ABE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{13DC59C7-05BE-4649-BD32-FE3A29D64ABE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13DC59C7-05BE-4649-BD32-FE3A29D64ABE}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{13DC59C7-05BE-4649-BD32-FE3A29D64ABE}.Debug|ARM.Build.0 = Debug|Any CPU
+		{13DC59C7-05BE-4649-BD32-FE3A29D64ABE}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{13DC59C7-05BE-4649-BD32-FE3A29D64ABE}.Debug|x64.Build.0 = Debug|Any CPU
+		{13DC59C7-05BE-4649-BD32-FE3A29D64ABE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{13DC59C7-05BE-4649-BD32-FE3A29D64ABE}.Debug|x86.Build.0 = Debug|Any CPU
 		{13DC59C7-05BE-4649-BD32-FE3A29D64ABE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13DC59C7-05BE-4649-BD32-FE3A29D64ABE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13DC59C7-05BE-4649-BD32-FE3A29D64ABE}.Release|ARM.ActiveCfg = Release|Any CPU
+		{13DC59C7-05BE-4649-BD32-FE3A29D64ABE}.Release|ARM.Build.0 = Release|Any CPU
+		{13DC59C7-05BE-4649-BD32-FE3A29D64ABE}.Release|x64.ActiveCfg = Release|Any CPU
+		{13DC59C7-05BE-4649-BD32-FE3A29D64ABE}.Release|x64.Build.0 = Release|Any CPU
+		{13DC59C7-05BE-4649-BD32-FE3A29D64ABE}.Release|x86.ActiveCfg = Release|Any CPU
+		{13DC59C7-05BE-4649-BD32-FE3A29D64ABE}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {386342EC-3693-4DBA-927A-F26C8C4D96D3}
+		SolutionGuid = {62732A94-C0E3-427D-A4D0-F89B9D53070D}
 	EndGlobalSection
 EndGlobal
