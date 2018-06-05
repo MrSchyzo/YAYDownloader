@@ -1,7 +1,10 @@
 ﻿<Window x:Class="YTDownloaderWpf.Views.Dialogs.TaskDialog"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Insert URL and Name here" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen"
+        xmlns:props="clr-namespace:YTDownloaderWpf.Properties"
+        Title="{x:Static props:Resources.INSERT_URL_NAME_HERE}" 
+        SizeToContent="WidthAndHeight" 
+        WindowStartupLocation="CenterScreen"
         ContentRendered="Window_ContentRendered"
         MinWidth="320"
         MinHeight="180">
@@ -18,9 +21,9 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <Label Name="lblUrl" Grid.Column="1">URL</Label>
+        <Label Name="lblUrl" Grid.Column="1" Content="{x:Static props:Resources.URL}"></Label>
         <TextBox Name="txtUrl" Grid.Column="1" Grid.Row="1" MinWidth="250"></TextBox>
-        <Label Name="lblName" Grid.Column="1" Grid.Row="2">Name</Label>
+        <Label Name="lblName" Grid.Column="1" Grid.Row="2" Content="{x:Static props:Resources.METADATA_TASK_NAME}"></Label>
         <TextBox Name="txtName" Grid.Column="1" Grid.Row="3" MinWidth="250"></TextBox>
 
         <WrapPanel Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Right" Margin="0,15,0,0">

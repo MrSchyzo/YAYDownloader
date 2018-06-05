@@ -54,14 +54,14 @@ namespace YTDownloaderWpf.Tasks.Commands
             try
             {
                 task.Status = MetadataState.RUNNING;
-                task.Message = "Retrieving chosen video URI";
+                task.Message = String.Format(Properties.Resources.COMMAND_MSG_URI_SEARCH);
                 using (ChunkDownloader client = new ChunkDownloader())
                 {
                     client.OnProgress += (new ProgressHandler(task)).HandleProgress;
 
                     totalDownloaded = await client.DownloadToFile(vid.Uri, tempFile);
                 }
-                task.Message = $"Now extracting MP3 from \"{tempFile}\"";
+                task.Message = String.Format(Properties.Resources.COMMAND_MSG_START_MP3, tempFile);
 
                 FFMpegConverter converter = new FFMpegConverter();
                 converter.ConvertProgress += (new ConvertProgressHandler(task)).HandleProgress;
@@ -69,7 +69,7 @@ namespace YTDownloaderWpf.Tasks.Commands
                 System.IO.File.Delete(tempFile);
 
                 task.Status = MetadataState.METADATA;
-                task.Message = $"MP3 correctly downloaded to \"{mp3File}\"";
+                task.Message = String.Format(Properties.Resources.COMMAND_MSG_END_MP3, mp3File);
             }
             catch (Exception ex)
             {
@@ -90,7 +90,7 @@ namespace YTDownloaderWpf.Tasks.Commands
 
         public void HandleProgress(object sender, ConvertProgressEventArgs e)
         {
-            task.Message = $"Converting to mp3: {e.Processed} out of {e.TotalDuration}";
+            task.Message = String.Format(Properties.Resources.COMMAND_MSG_PROGRESS_MP3, e.Processed, e.TotalDuration);
         }
     }
 }

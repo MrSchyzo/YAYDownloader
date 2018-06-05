@@ -70,6 +70,114 @@ namespace YTDownloaderWpf.Properties {
         }
         
         /// <summary>
+        ///   Cerca una stringa localizzata simile a YAYDownloader - Yet Another Youtube Downloader.
+        /// </summary>
+        public static string APP_TITLE {
+            get {
+                return ResourceManager.GetString("APP_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Got {0} (out of {1}) downloadable URLs.
+        /// </summary>
+        public static string COMMAND_MSG_DONE_METADATA {
+            get {
+                return ResourceManager.GetString("COMMAND_MSG_DONE_METADATA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a MP3 correctly saved to &quot;{0}&quot;.
+        /// </summary>
+        public static string COMMAND_MSG_END_MP3 {
+            get {
+                return ResourceManager.GetString("COMMAND_MSG_END_MP3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Fetching video metadata.
+        /// </summary>
+        public static string COMMAND_MSG_FETCHING_METADATA {
+            get {
+                return ResourceManager.GetString("COMMAND_MSG_FETCHING_METADATA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a {0} currently downloaded.
+        /// </summary>
+        public static string COMMAND_MSG_PROGRESS_DOWNLOAD {
+            get {
+                return ResourceManager.GetString("COMMAND_MSG_PROGRESS_DOWNLOAD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a MP3 extraction: done {0}, out of {1}.
+        /// </summary>
+        public static string COMMAND_MSG_PROGRESS_MP3 {
+            get {
+                return ResourceManager.GetString("COMMAND_MSG_PROGRESS_MP3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Now extracting MP3 from &quot;{0}&quot;.
+        /// </summary>
+        public static string COMMAND_MSG_START_MP3 {
+            get {
+                return ResourceManager.GetString("COMMAND_MSG_START_MP3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Correctly downloaded {0} to &quot;{1}&quot;.
+        /// </summary>
+        public static string COMMAND_MSG_SUCCESS_DOWNLOAD {
+            get {
+                return ResourceManager.GetString("COMMAND_MSG_SUCCESS_DOWNLOAD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Fetching video URI.
+        /// </summary>
+        public static string COMMAND_MSG_URI_SEARCH {
+            get {
+                return ResourceManager.GetString("COMMAND_MSG_URI_SEARCH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a URL does not represent any reachable resource, aborting task creation.
+        /// </summary>
+        public static string DIALOG_INVALID_URL {
+            get {
+                return ResourceManager.GetString("DIALOG_INVALID_URL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Download.
+        /// </summary>
+        public static string DOWNLOAD {
+            get {
+                return ResourceManager.GetString("DOWNLOAD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Insert URL and Name here.
+        /// </summary>
+        public static string INSERT_URL_NAME_HERE {
+            get {
+                return ResourceManager.GetString("INSERT_URL_NAME_HERE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Cerca una stringa localizzata simile a Message.
         /// </summary>
         public static string METADATA_TASK_MESSAGE {
@@ -88,6 +196,15 @@ namespace YTDownloaderWpf.Properties {
         }
         
         /// <summary>
+        ///   Cerca una stringa localizzata simile a Ready to start.
+        /// </summary>
+        public static string METADATA_TASK_READY {
+            get {
+                return ResourceManager.GetString("METADATA_TASK_READY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Cerca una stringa localizzata simile a Status.
         /// </summary>
         public static string METADATA_TASK_STATUS {
@@ -97,11 +214,30 @@ namespace YTDownloaderWpf.Properties {
         }
         
         /// <summary>
+        ///   Cerca una stringa localizzata simile a Formats.
+        /// </summary>
+        public static string METADATA_TASK_VIDEOS {
+            get {
+                return ResourceManager.GetString("METADATA_TASK_VIDEOS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Cerca una stringa localizzata simile a URL.
         /// </summary>
         public static string URL {
             get {
                 return ResourceManager.GetString("URL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap YAYDownloader {
+            get {
+                object obj = ResourceManager.GetObject("YAYDownloader", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }
