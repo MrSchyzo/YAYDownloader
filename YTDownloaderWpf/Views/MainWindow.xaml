@@ -11,7 +11,7 @@
         xmlns:commands="clr-namespace:YTDownloaderWpf.Tasks.Commands"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="MainWindow" MinHeight="720" MinWidth="1280">
+        Title="{x:Static props:Resources.APP_TITLE}" MinHeight="720" MinWidth="1280"
         Icon="../Resources/Images/YAYDownloader.png">
     <Window.DataContext>
         <vms:VideosListViewModel/>
@@ -118,7 +118,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Width="25*" Header="Videos">
+                <DataGridTemplateColumn Width="25*" Header="{x:Static props:Resources.METADATA_TASK_VIDEOS}">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <ComboBox ItemsSource="{Binding Path=Videos}"
@@ -140,7 +140,7 @@
                 <DataGridTemplateColumn Width="10*" Header="">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="Download" CommandParameter="{Binding}" Command="{StaticResource DownloadToFile}">
+                            <Button Content="{x:Static props:Resources.DOWNLOAD}" CommandParameter="{Binding}" Command="{StaticResource DownloadToFile}">
                                 <Button.Style>
                                     <Style TargetType="Button">
                                         <Setter Property="IsEnabled" Value="True"/>

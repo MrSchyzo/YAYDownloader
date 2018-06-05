@@ -54,7 +54,7 @@ namespace YTDownloaderWpf.Tasks.Commands
             try
             {
                 task.Status = MetadataState.RUNNING;
-                task.Message = "Retrieving chosen video URI";
+                task.Message = Properties.Resources.COMMAND_MSG_URI_SEARCH;
                 using (ChunkDownloader client = new ChunkDownloader())
                 {
                     client.OnProgress += (new ProgressHandler(task)).HandleProgress;
@@ -62,7 +62,7 @@ namespace YTDownloaderWpf.Tasks.Commands
                     totalDownloaded = await client.DownloadToFile(vid.Uri, pathToSave);
                 }
                 task.Status = MetadataState.METADATA;
-                task.Message = $"File correctly downloaded {totalDownloaded.GetBeautifiedByteSize()} to \"{pathToSave}\"";
+                task.Message = String.Format(Properties.Resources.COMMAND_MSG_SUCCESS_DOWNLOAD, totalDownloaded.GetBeautifiedByteSize(), pathToSave);
             }
             catch (Exception ex)
             {
@@ -85,7 +85,7 @@ namespace YTDownloaderWpf.Tasks.Commands
         public void HandleProgress(object sender, IDownloadEventArgs e)
         {
             var size = (accumulate += e.ReadBytes).GetBeautifiedByteSize();
-            task.Message = $"Downloading... {size}";
+            task.Message = String.Format(Properties.Resources.COMMAND_MSG_PROGRESS_DOWNLOAD, size);
         }
     }
 }
