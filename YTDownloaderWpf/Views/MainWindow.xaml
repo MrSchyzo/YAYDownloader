@@ -12,6 +12,7 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="MainWindow" MinHeight="720" MinWidth="1280">
+        Icon="../Resources/Images/YAYDownloader.png">
     <Window.DataContext>
         <vms:VideosListViewModel/>
     </Window.DataContext>
