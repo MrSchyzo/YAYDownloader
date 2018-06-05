@@ -34,7 +34,7 @@ namespace YTDownloaderWpf.Tasks.Commands
                 Url = dialog.URL,
                 Name = dialog.TaskName,
                 Status = MetadataState.READY,
-                Message = "Ready to start"
+                Message = Properties.Resources.METADATA_TASK_READY
             });
         }
     }

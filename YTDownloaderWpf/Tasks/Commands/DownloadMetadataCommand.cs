@@ -33,14 +33,14 @@ namespace YTDownloaderWpf.Tasks.Commands
                 task.ClearVideoCollection();
 
                 task.Status = MetadataState.RUNNING;
-                task.Message = "Fetching metadata";
+                task.Message = Properties.Resources.COMMAND_MSG_FETCHING_METADATA;
 
                 var videos = await (new YouTube()).GetAllVideosAsync(task.Url);
                 var downloadableVideos = videos.Where(x => x.Resolution > 0 || x.AudioFormat != AudioFormat.Unknown);
                 task.AddVideoToCollection(downloadableVideos);
 
                 task.Status = MetadataState.METADATA;
-                task.Message = $"Got {task.Videos.Count} (out of {videos.Count()}) downloadable URLs ";
+                task.Message = String.Format(Properties.Resources.COMMAND_MSG_DONE_METADATA, task.Videos.Count, videos.Count());
             }
             catch (Exception ex)
             {

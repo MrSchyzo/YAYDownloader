@@ -169,4 +169,13 @@
   <data name="DIALOG_INVALID_URL" xml:space="preserve">
     <value>URL does not represent any reachable resource, aborting task creation</value>
   </data>
+  <data name="COMMAND_MSG_DONE_METADATA" xml:space="preserve">
+    <value>Got {0} (out of {1}) downloadable URLs</value>
+  </data>
+  <data name="COMMAND_MSG_FETCHING_METADATA" xml:space="preserve">
+    <value>Fetching video metadata</value>
+  </data>
+  <data name="METADATA_TASK_READY" xml:space="preserve">
+    <value>Ready to start</value>
+  </data>
 </root>

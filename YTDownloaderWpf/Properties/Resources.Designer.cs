@@ -79,11 +79,29 @@ namespace YTDownloaderWpf.Properties {
         }
         
         /// <summary>
+        ///   Cerca una stringa localizzata simile a Got {0} (out of {1}) downloadable URLs.
+        /// </summary>
+        public static string COMMAND_MSG_DONE_METADATA {
+            get {
+                return ResourceManager.GetString("COMMAND_MSG_DONE_METADATA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Cerca una stringa localizzata simile a MP3 correctly saved to &quot;{0}&quot;.
         /// </summary>
         public static string COMMAND_MSG_END_MP3 {
             get {
                 return ResourceManager.GetString("COMMAND_MSG_END_MP3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Fetching video metadata.
+        /// </summary>
+        public static string COMMAND_MSG_FETCHING_METADATA {
+            get {
+                return ResourceManager.GetString("COMMAND_MSG_FETCHING_METADATA", resourceCulture);
             }
         }
         
@@ -174,6 +192,15 @@ namespace YTDownloaderWpf.Properties {
         public static string METADATA_TASK_NAME {
             get {
                 return ResourceManager.GetString("METADATA_TASK_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Ready to start.
+        /// </summary>
+        public static string METADATA_TASK_READY {
+            get {
+                return ResourceManager.GetString("METADATA_TASK_READY", resourceCulture);
             }
         }
         

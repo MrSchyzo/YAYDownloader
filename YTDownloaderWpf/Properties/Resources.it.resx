@@ -169,4 +169,13 @@
   <data name="DIALOG_INVALID_URL" xml:space="preserve">
     <value>La URL fornita non rappresenta alcuna risorsa raggiungibile, input ignorato</value>
   </data>
+  <data name="COMMAND_MSG_DONE_METADATA" xml:space="preserve">
+    <value>Ricevuti {0} (su {1}) URL fruibili</value>
+  </data>
+  <data name="COMMAND_MSG_FETCHING_METADATA" xml:space="preserve">
+    <value>Estrazione metadati del video</value>
+  </data>
+  <data name="METADATA_TASK_READY" xml:space="preserve">
+    <value>Pronto</value>
+  </data>
 </root>
