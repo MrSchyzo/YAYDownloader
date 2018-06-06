@@ -187,6 +187,15 @@ namespace YTDownloaderWpf.Properties {
         }
         
         /// <summary>
+        ///   Cerca una stringa localizzata simile a MP3.
+        /// </summary>
+        public static string METADATA_TASK_MP3 {
+            get {
+                return ResourceManager.GetString("METADATA_TASK_MP3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Cerca una stringa localizzata simile a Name.
         /// </summary>
         public static string METADATA_TASK_NAME {
@@ -210,6 +219,15 @@ namespace YTDownloaderWpf.Properties {
         public static string METADATA_TASK_STATUS {
             get {
                 return ResourceManager.GetString("METADATA_TASK_STATUS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Video.
+        /// </summary>
+        public static string METADATA_TASK_VIDEO {
+            get {
+                return ResourceManager.GetString("METADATA_TASK_VIDEO", resourceCulture);
             }
         }
         

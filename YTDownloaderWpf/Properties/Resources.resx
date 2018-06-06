@@ -178,4 +178,10 @@
   <data name="METADATA_TASK_READY" xml:space="preserve">
     <value>Ready to start</value>
   </data>
+  <data name="METADATA_TASK_MP3" xml:space="preserve">
+    <value>MP3</value>
+  </data>
+  <data name="METADATA_TASK_VIDEO" xml:space="preserve">
+    <value>Video</value>
+  </data>
 </root>
