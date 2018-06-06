@@ -178,4 +178,22 @@
   <data name="METADATA_TASK_READY" xml:space="preserve">
     <value>Ready to start</value>
   </data>
+  <data name="METADATA_TASK_MP3" xml:space="preserve">
+    <value>MP3</value>
+  </data>
+  <data name="METADATA_TASK_VIDEO" xml:space="preserve">
+    <value>Video</value>
+  </data>
+  <data name="YTVIDEO_WRAPPER_AUDIOFORMAT_BITRATE" xml:space="preserve">
+    <value>{0} audio @ {1}kbps</value>
+  </data>
+  <data name="YTVIDEO_WRAPPER_NOAUDIO" xml:space="preserve">
+    <value>No audio</value>
+  </data>
+  <data name="YTVIDEO_WRAPPER_NOVIDEO" xml:space="preserve">
+    <value />
+  </data>
+  <data name="YTVIDEO_WRAPPER_VIDEOFORMAT" xml:space="preserve">
+    <value>[{0}p] {1} - (file {2})</value>
+  </data>
 </root>

@@ -187,6 +187,15 @@ namespace YTDownloaderWpf.Properties {
         }
         
         /// <summary>
+        ///   Cerca una stringa localizzata simile a MP3.
+        /// </summary>
+        public static string METADATA_TASK_MP3 {
+            get {
+                return ResourceManager.GetString("METADATA_TASK_MP3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Cerca una stringa localizzata simile a Name.
         /// </summary>
         public static string METADATA_TASK_NAME {
@@ -210,6 +219,15 @@ namespace YTDownloaderWpf.Properties {
         public static string METADATA_TASK_STATUS {
             get {
                 return ResourceManager.GetString("METADATA_TASK_STATUS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Video.
+        /// </summary>
+        public static string METADATA_TASK_VIDEO {
+            get {
+                return ResourceManager.GetString("METADATA_TASK_VIDEO", resourceCulture);
             }
         }
         
@@ -238,6 +256,42 @@ namespace YTDownloaderWpf.Properties {
             get {
                 object obj = ResourceManager.GetObject("YAYDownloader", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a {0} audio @ {1}kbps.
+        /// </summary>
+        public static string YTVIDEO_WRAPPER_AUDIOFORMAT_BITRATE {
+            get {
+                return ResourceManager.GetString("YTVIDEO_WRAPPER_AUDIOFORMAT_BITRATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a No audio.
+        /// </summary>
+        public static string YTVIDEO_WRAPPER_NOAUDIO {
+            get {
+                return ResourceManager.GetString("YTVIDEO_WRAPPER_NOAUDIO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a .
+        /// </summary>
+        public static string YTVIDEO_WRAPPER_NOVIDEO {
+            get {
+                return ResourceManager.GetString("YTVIDEO_WRAPPER_NOVIDEO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a [{0}p] {1} - (file {2}).
+        /// </summary>
+        public static string YTVIDEO_WRAPPER_VIDEOFORMAT {
+            get {
+                return ResourceManager.GetString("YTVIDEO_WRAPPER_VIDEOFORMAT", resourceCulture);
             }
         }
     }

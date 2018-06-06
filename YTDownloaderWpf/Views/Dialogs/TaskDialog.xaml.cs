@@ -31,7 +31,7 @@ namespace YTDownloaderWpf.Views.Dialogs
 
             if (!(this.DialogResult ?? false))
             {
-                MessageBox.Show("URL does not represent any reachable resource, aborting task creation", "Abort", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                MessageBox.Show(Properties.Resources.DIALOG_INVALID_URL, "", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         }
 

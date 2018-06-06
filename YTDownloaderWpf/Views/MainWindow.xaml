@@ -137,7 +137,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Width="10*" Header="">
+                <DataGridTemplateColumn Width="10*" Header="{x:Static props:Resources.METADATA_TASK_VIDEO}">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button Content="{x:Static props:Resources.DOWNLOAD}" CommandParameter="{Binding}" Command="{StaticResource DownloadToFile}">
@@ -164,10 +164,10 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Width="10*" Header="Audio">
+                <DataGridTemplateColumn Width="10*" Header="{x:Static props:Resources.METADATA_TASK_MP3}">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="MP3" CommandParameter="{Binding}" Command="{StaticResource DownloadMP3}">
+                            <Button Content="{x:Static props:Resources.DOWNLOAD}" CommandParameter="{Binding}" Command="{StaticResource DownloadMP3}">
                                 <Button.Style>
                                     <Style TargetType="Button">
                                         <Setter Property="IsEnabled" Value="True"/>
