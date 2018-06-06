@@ -258,5 +258,41 @@ namespace YTDownloaderWpf.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a {0} audio @ {1}kbps.
+        /// </summary>
+        public static string YTVIDEO_WRAPPER_AUDIOFORMAT_BITRATE {
+            get {
+                return ResourceManager.GetString("YTVIDEO_WRAPPER_AUDIOFORMAT_BITRATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a No audio.
+        /// </summary>
+        public static string YTVIDEO_WRAPPER_NOAUDIO {
+            get {
+                return ResourceManager.GetString("YTVIDEO_WRAPPER_NOAUDIO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a .
+        /// </summary>
+        public static string YTVIDEO_WRAPPER_NOVIDEO {
+            get {
+                return ResourceManager.GetString("YTVIDEO_WRAPPER_NOVIDEO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a [{0}p] {1} - (file {2}).
+        /// </summary>
+        public static string YTVIDEO_WRAPPER_VIDEOFORMAT {
+            get {
+                return ResourceManager.GetString("YTVIDEO_WRAPPER_VIDEOFORMAT", resourceCulture);
+            }
+        }
     }
 }

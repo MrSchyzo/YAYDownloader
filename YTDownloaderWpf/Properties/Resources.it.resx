@@ -184,4 +184,16 @@
   <data name="METADATA_TASK_VIDEO" xml:space="preserve">
     <value>Video</value>
   </data>
+  <data name="YTVIDEO_WRAPPER_AUDIOFORMAT_BITRATE" xml:space="preserve">
+    <value>Audio {0} @ {1}kbps</value>
+  </data>
+  <data name="YTVIDEO_WRAPPER_NOAUDIO" xml:space="preserve">
+    <value>Senza audio</value>
+  </data>
+  <data name="YTVIDEO_WRAPPER_NOVIDEO" xml:space="preserve">
+    <value />
+  </data>
+  <data name="YTVIDEO_WRAPPER_VIDEOFORMAT" xml:space="preserve">
+    <value>[{0}p] {1} - (file {2})</value>
+  </data>
 </root>

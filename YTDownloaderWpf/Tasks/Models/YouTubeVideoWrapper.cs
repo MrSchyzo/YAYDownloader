@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using VideoLibrary;
 using YTDownloaderWpf.Utils.Extensions;
@@ -35,10 +36,26 @@ namespace YTDownloaderWpf.Tasks.Models
         {
             YouTubeVideo vid = ytVideo;
 
-            var audio = vid.AudioFormat != AudioFormat.Unknown ? $"Audio format {vid.AudioFormat}" : "Without audio";
-            var video = vid.Resolution > 0 ? $"Video: [{vid.Resolution}p]{vid.Format} - {vid.FileExtension}" : "";
+            var audio = GetAudioDescription(vid);
+            var video = GetVideoDescription(vid);
 
             return string.Join(" ; ", new string[] { video, audio }.Where(x => !string.IsNullOrWhiteSpace(x)));
+        }
+
+        private static string GetVideoDescription(YouTubeVideo vid)
+        {
+            if (vid.Resolution <= 0)
+                return String.Format(Properties.Resources.YTVIDEO_WRAPPER_NOVIDEO);
+
+            return String.Format(Properties.Resources.YTVIDEO_WRAPPER_VIDEOFORMAT, vid.Resolution, vid.Format, vid.FileExtension);
+        }
+
+        private static string GetAudioDescription(YouTubeVideo vid)
+        {
+            if (vid.AudioFormat == AudioFormat.Unknown)
+                return String.Format(Properties.Resources.YTVIDEO_WRAPPER_NOAUDIO);
+
+            return String.Format(Properties.Resources.YTVIDEO_WRAPPER_AUDIOFORMAT_BITRATE, vid.AudioFormat, vid.AudioBitrate);
         }
     }
 }
