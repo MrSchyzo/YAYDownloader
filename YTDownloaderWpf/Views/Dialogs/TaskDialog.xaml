@@ -6,8 +6,8 @@
         SizeToContent="WidthAndHeight" 
         WindowStartupLocation="CenterScreen"
         ContentRendered="Window_ContentRendered"
-        MinWidth="320"
-        MinHeight="180">
+        MinWidth="368"
+        MinHeight="207" MaxHeight="207">
     <Grid Margin="15">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
@@ -26,8 +26,8 @@
         <Label Name="lblName" Grid.Column="1" Grid.Row="2" Content="{x:Static props:Resources.METADATA_TASK_NAME}"></Label>
         <TextBox Name="txtName" Grid.Column="1" Grid.Row="3" MinWidth="250"></TextBox>
 
-        <WrapPanel Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Right" Margin="0,15,0,0">
-            <Button Content="_Ok" IsDefault="True" Name="btnDialogOk" Click="btnDialogOk_Click" MinWidth="60">
+        <WrapPanel Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Right" Margin="0,24,0,0">
+            <Button Content="_Ok" IsDefault="True" x:Name="btnDialogOk" Click="btnDialogOk_Click" MinWidth="60">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Style.Triggers>
