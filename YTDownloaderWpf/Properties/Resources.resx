@@ -191,7 +191,7 @@
     <value>No audio</value>
   </data>
   <data name="YTVIDEO_WRAPPER_NOVIDEO" xml:space="preserve">
-    <value />
+    <value>No video</value>
   </data>
   <data name="YTVIDEO_WRAPPER_VIDEOFORMAT" xml:space="preserve">
     <value>[{0}p] {1} - (file {2})</value>
