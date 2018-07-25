@@ -278,7 +278,7 @@ namespace YTDownloaderWpf.Properties {
         }
         
         /// <summary>
-        ///   Cerca una stringa localizzata simile a .
+        ///   Cerca una stringa localizzata simile a No video.
         /// </summary>
         public static string YTVIDEO_WRAPPER_NOVIDEO {
             get {
