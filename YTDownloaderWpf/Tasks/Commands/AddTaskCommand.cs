@@ -11,16 +11,11 @@ namespace YTDownloaderWpf.Tasks.Commands
         private ICollection<MetadataTask> metadata;
 
         public AddTaskCommand(ICollection<MetadataTask> metadata)
-        {
-            this.metadata = metadata;
-        }
+            => this.metadata = metadata;
 
         public event EventHandler CanExecuteChanged;
 
-        public bool CanExecute(object parameter)
-        {
-            return true;
-        }
+        public bool CanExecute(object parameter) => true;
 
         public void Execute(object parameter)
         {

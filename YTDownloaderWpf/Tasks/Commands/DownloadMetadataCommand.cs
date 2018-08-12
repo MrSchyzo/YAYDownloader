@@ -18,7 +18,7 @@ namespace YTDownloaderWpf.Tasks.Commands
 
         public void Execute(object parameter)
         {
-            MetadataTask task = (MetadataTask)parameter;
+            MetadataTask task = parameter as MetadataTask;
 
             Task.Run(async () => await FetchMetadata(task));
         }
@@ -41,6 +41,7 @@ namespace YTDownloaderWpf.Tasks.Commands
 
                 task.Status = MetadataState.METADATA;
                 task.Message = String.Format(Properties.Resources.COMMAND_MSG_DONE_METADATA, task.Videos.Count, videos.Count());
+                task.Name = String.IsNullOrWhiteSpace(task.Name) ? videos.Select(x => x.Title).First() : task.Name;
             }
             catch (Exception ex)
             {

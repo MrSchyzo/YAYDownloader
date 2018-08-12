@@ -36,6 +36,7 @@
         </Grid.RowDefinitions>
         <Menu Grid.Row="0" DockPanel.Dock="Top">
             <MenuItem Header="{x:Static props:Resources.ADD_VIDEO}" Command="{Binding AddTask}"/>
+            <MenuItem Header="{x:Static props:Resources.ADD_VIDEO_FROM_CLIPBOARD}" Command="{Binding AddFromClipboard}"/>
         </Menu>
         <DataGrid IsReadOnly="True" Grid.Row="1" RowHeaderWidth="0" ItemsSource="{Binding Tasks, Mode=OneWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False" CanUserAddRows="False" BorderThickness="0" CanUserDeleteRows="False">
             <DataGrid.CellStyle>
