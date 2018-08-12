@@ -6,8 +6,8 @@
         SizeToContent="WidthAndHeight" 
         WindowStartupLocation="CenterScreen"
         ContentRendered="Window_ContentRendered"
-        MinWidth="368"
-        MinHeight="207" MaxHeight="207">
+        MinWidth="384"
+        MinHeight="216" MaxHeight="216">
     <Grid Margin="15">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
