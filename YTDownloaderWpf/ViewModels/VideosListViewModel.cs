@@ -7,18 +7,14 @@ namespace YTDownloaderWpf.ViewModels
 {
     public class VideosListViewModel
     {
-        private ObservableCollection<MetadataTask> tasks = new ObservableCollection<MetadataTask>();
-        public ObservableCollection<MetadataTask> Tasks
-        {
-            get { return tasks; }
-        }
+        public ObservableCollection<MetadataTask> Tasks { get; } = new ObservableCollection<MetadataTask>();
 
         private ICommand removeTask;
         public ICommand RemoveTask
         {
             get
             {
-                return removeTask ?? (removeTask = new RemoveTaskCommand(tasks));
+                return removeTask ?? (removeTask = new RemoveTaskCommand(Tasks));
             }
         }
 
@@ -27,10 +23,19 @@ namespace YTDownloaderWpf.ViewModels
         {
             get
             {
-                return addTask ?? (addTask = new AddTaskCommand(tasks));
+                return addTask ?? (addTask = new AddTaskCommand(Tasks));
             }
         }
-        
+
+        private ICommand addFromClipboard;
+        public ICommand AddFromClipboard
+        {
+            get
+            {
+                return addFromClipboard ?? (addFromClipboard = new AddFromClipboardCommand(Tasks));
+            }
+        }
+
         public VideosListViewModel()
         {
         }

@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Net;
 using System.Windows;
+using YTDownloaderWpf.Utils.Extensions;
 
 namespace YTDownloaderWpf.Views.Dialogs
 {
@@ -13,26 +13,14 @@ namespace YTDownloaderWpf.Views.Dialogs
 
         private void btnDialogOk_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if (String.IsNullOrWhiteSpace(txtUrl.Text) || txtUrl.Text.IsValidHttpUri())
             {
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(txtUrl.Text);
-                request.Timeout = 15000;
-                request.Method = "HEAD";
-
-                using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-                {
-                    this.DialogResult = response.StatusCode == HttpStatusCode.OK;
-                }
-            }
-            catch (Exception ex) when (ex is WebException || ex is UriFormatException)
-            {
-                this.DialogResult = false;
+                DialogResult = true;
+                return;
             }
 
-            if (!(this.DialogResult ?? false))
-            {
-                MessageBox.Show(Properties.Resources.DIALOG_INVALID_URL, "", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-            }
+            MessageBox.Show(Properties.Resources.DIALOG_INVALID_URL, "", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            DialogResult = false;
         }
 
         private void Window_ContentRendered(object sender, EventArgs e)

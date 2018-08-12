@@ -70,11 +70,39 @@ namespace YTDownloaderWpf.Properties {
         }
         
         /// <summary>
+        ///   Cerca una stringa localizzata simile a Add from clipboard.
+        /// </summary>
+        public static string ADD_VIDEO_FROM_CLIPBOARD {
+            get {
+                return ResourceManager.GetString("ADD_VIDEO_FROM_CLIPBOARD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Cerca una stringa localizzata simile a YAYDownloader - Yet Another Youtube Downloader.
         /// </summary>
         public static string APP_TITLE {
             get {
                 return ResourceManager.GetString("APP_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Wrong clipboard content.
+        /// </summary>
+        public static string CLIPBOARD_INVALID_PASTE {
+            get {
+                return ResourceManager.GetString("CLIPBOARD_INVALID_PASTE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Clipboard content does not represent any valid HTTP(S) URI: clipboard content is
+        ///{0}.
+        /// </summary>
+        public static string CLIPBOARD_INVALID_URL {
+            get {
+                return ResourceManager.GetString("CLIPBOARD_INVALID_URL", resourceCulture);
             }
         }
         
@@ -151,7 +179,7 @@ namespace YTDownloaderWpf.Properties {
         }
         
         /// <summary>
-        ///   Cerca una stringa localizzata simile a URL does not represent any reachable resource, aborting task creation.
+        ///   Cerca una stringa localizzata simile a URL does not represent any HTTP(S) location, aborting task creation.
         /// </summary>
         public static string DIALOG_INVALID_URL {
             get {

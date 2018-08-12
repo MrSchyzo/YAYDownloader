@@ -167,7 +167,7 @@
     <value>Inizio estrazione MP3 da "{0}"</value>
   </data>
   <data name="DIALOG_INVALID_URL" xml:space="preserve">
-    <value>La URL fornita non rappresenta alcuna risorsa raggiungibile, input ignorato</value>
+    <value>La URL fornita non rappresenta alcun link HTTP(S), input ignorato</value>
   </data>
   <data name="COMMAND_MSG_DONE_METADATA" xml:space="preserve">
     <value>Ricevuti {0} (su {1}) URL fruibili</value>
@@ -195,5 +195,15 @@
   </data>
   <data name="YTVIDEO_WRAPPER_VIDEOFORMAT" xml:space="preserve">
     <value>[{0}p] {1} - (file {2})</value>
+  </data>
+  <data name="ADD_VIDEO_FROM_CLIPBOARD" xml:space="preserve">
+    <value>Aggiungi dagli appunti</value>
+  </data>
+  <data name="CLIPBOARD_INVALID_PASTE" xml:space="preserve">
+    <value>Contenuto degli appunti errato</value>
+  </data>
+  <data name="CLIPBOARD_INVALID_URL" xml:space="preserve">
+    <value>Il contenuto degli appunti non rappresenta alcuna URI HTTP(S): gli appunti contengono
+{0}</value>
   </data>
 </root>

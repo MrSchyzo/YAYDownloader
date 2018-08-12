@@ -167,7 +167,7 @@
     <value>Now extracting MP3 from "{0}"</value>
   </data>
   <data name="DIALOG_INVALID_URL" xml:space="preserve">
-    <value>URL does not represent any reachable resource, aborting task creation</value>
+    <value>URL does not represent any HTTP(S) location, aborting task creation</value>
   </data>
   <data name="COMMAND_MSG_DONE_METADATA" xml:space="preserve">
     <value>Got {0} (out of {1}) downloadable URLs</value>
@@ -195,5 +195,15 @@
   </data>
   <data name="YTVIDEO_WRAPPER_VIDEOFORMAT" xml:space="preserve">
     <value>[{0}p] {1} - (file {2})</value>
+  </data>
+  <data name="ADD_VIDEO_FROM_CLIPBOARD" xml:space="preserve">
+    <value>Add from clipboard</value>
+  </data>
+  <data name="CLIPBOARD_INVALID_PASTE" xml:space="preserve">
+    <value>Wrong clipboard content</value>
+  </data>
+  <data name="CLIPBOARD_INVALID_URL" xml:space="preserve">
+    <value>Clipboard content does not represent any valid HTTP(S) URI: clipboard content is
+{0}</value>
   </data>
 </root>

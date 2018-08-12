@@ -8,12 +8,42 @@ namespace YTDownloaderWpf.Tasks.Models
     public class MetadataTask : TrivialObservable
     {
         #region Task properties
-        public string Url { get; set; }
-        public string Name { get; set; }
         public string SuggestedFilename { get { return Name.GetValidFilePath(); } }
         #endregion
 
+
         #region Task read-write properties
+        #region Task url
+        private string url = "";
+        public string Url {
+            get { return url; }
+            set
+            {
+                if (!url.Equals(value))
+                {
+                    url = value;
+                    OnPropertyChanged("Url");
+                }
+            }
+        }
+        #endregion
+
+        #region Task url
+        private string name = "";
+        public string Name
+        {
+            get { return name; }
+            set
+            {
+                if (!name.Equals(value))
+                {
+                    name = value;
+                    OnPropertyChanged("Name");
+                }
+            }
+        }
+        #endregion
+
         #region Task message
         private string message = "";
         public string Message
@@ -29,6 +59,7 @@ namespace YTDownloaderWpf.Tasks.Models
             }
         }
         #endregion
+
 
         #region Task status
         private MetadataState status = MetadataState.READY;

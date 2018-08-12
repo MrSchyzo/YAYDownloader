@@ -31,9 +31,6 @@
                 <Button.Style>
                     <Style TargetType="Button">
                         <Style.Triggers>
-                            <DataTrigger Binding="{Binding Text.Length, ElementName=txtName}" Value="0">
-                                <Setter Property="IsEnabled" Value="False"/>
-                            </DataTrigger>
                             <DataTrigger Binding="{Binding Text.Length, ElementName=txtUrl}" Value="0">
                                 <Setter Property="IsEnabled" Value="False"/>
                             </DataTrigger>
